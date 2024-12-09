@@ -18,7 +18,7 @@ def mi_nombre(request, nombre):
     return HttpResponse(f"Mi nombre es: {nombre}")
 
 def probandoTemplate(self):
-    miHtml = open("C:\Users\Leandro Molina\OneDrive - diesellange\Documentos\Leandro\Capacitaciones\Python\Tercera Pre-Entrega - Leandro Molina\Tercera_PreEntrega_Molina\plantillas\template1.html")
+    miHtml = open("Tercera_PreEntrega_Molina\plantillas\template1.html")
     plantilla = Template(miHtml.read())
     miHtml.close()
     miContexto = Context()
