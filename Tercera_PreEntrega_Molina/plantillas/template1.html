@@ -6,8 +6,22 @@
     <title>Document</title>
 </head>
 <body>
-    
-    <h1>Hola Mundo</h1>
+    <h1>!!!!!!!.... Es muy facíl usar plantillas.</h1>
+    <p style="color: red;">Mi nombre es: {{nombre}}</p>
+    <p style="color: green;">Mi apellido es: {{apellido}}</p>
+    <p style="color: blue;">El dia es: {{dia}}</p>
 
+    <h2>Lista de Notas</h2>
+    <ul>
+        {% for nota in notas %}
+        {% if nota < 4 %}
+            <li style="color: red;">Nota: {{nota}}</li>
+        {% else %}
+            <li style="color: green;">Nota: {{nota}}</li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+    
+    
 </body>
 </html>

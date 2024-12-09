@@ -54,7 +54,7 @@ ROOT_URLCONF = 'Tercera_PreEntrega_Molina.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR/ 'Tercera_PreEntrega_Molina/plantillas'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
