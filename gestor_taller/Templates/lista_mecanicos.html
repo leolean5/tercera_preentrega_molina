@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Mecánicos</title>
+</head>
+<body>
+    <h1>Mecánicos</h1>
+    <ul>
+        {% for mecanico in mecanicos %}
+            <li>
+                <strong>Nombre:</strong> {{ mecanico.nombre }} {{ mecanico.apellido }}<br>
+                <strong>Documento:</strong> {{ mecanico.documento }}<br>
+                <strong>Fecha de Nacimiento:</strong> {{ mecanico.fecha_nacimiento }}<br>
+                <hr>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

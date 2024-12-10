@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Orden</title>
+</head>
+<body>
+    <h1>Detalle de Orden de Trabajo</h1>
+    <p><strong>Cliente:</strong> {{ orden.cliente }}</p>
+    <p><strong>Descripción:</strong> {{ orden.descripcion }}</p>
+    <p><strong>Estado:</strong> {{ orden.estado }}</p>
+    <p><strong>Fecha:</strong> {{ orden.fecha }}</p>
+    <h3>Mecánicos Asignados:</h3>
+    <ul>
+        {% for mecanico in orden.mecanicos_asignados.all %}
+            <li>{{ mecanico.nombre }} {{ mecanico.apellido }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

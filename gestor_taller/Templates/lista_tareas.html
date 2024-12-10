@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas</title>
+</head>
+<body>
+    <h1>Tareas</h1>
+    <ul>
+        {% for tarea in tareas %}
+            <li>
+                <strong>Tipo:</strong> {{ tarea.tipo_tarea }}<br>
+                <strong>Observaciones:</strong> {{ tarea.observaciones }}<br>
+                <strong>Mecánico:</strong> {{ tarea.mecanico.nombre }} {{ tarea.mecanico.apellido }}<br>
+                <strong>Fecha:</strong> {{ tarea.fecha_hora }}<br>
+                <strong>Orden de Trabajo:</strong> {{ tarea.orden_trabajo.id }}<br>
+                <hr>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
