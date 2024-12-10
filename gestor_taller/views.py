@@ -3,6 +3,8 @@ from .models import OrdenTrabajo
 from .models import Mecanico
 from .models import Tarea
 from .forms import OrdenTrabajoForm
+from .forms import BuscarOrdenForm
+
 
 # Create your views here.
 
