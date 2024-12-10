@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import OrdenTrabajo
 from .models import Mecanico
 from .models import Tarea
+from .forms import OrdenTrabajoForm
 
 # Create your views here.
 
@@ -33,6 +34,36 @@ def lista_tareas(request):
     tareas = Tarea.objects.all()
     # Renderizar la plantilla y pasar las tareas como contexto
     return render(request, 'lista_tareas.html', {'tareas': tareas})
+
+
+# Vista para crear una nueva orden de trabajo
+def crear_orden(request):
+    if request.method == 'POST':
+        form = OrdenTrabajoForm(request.POST)
+        if form.is_valid():
+            form.save()  # Guardar la nueva orden en la base de datos
+            return redirect('lista_ordenes')  # Redirigir a la lista de órdenes
+    else:
+        form = OrdenTrabajoForm()
+    return render(request, 'crear_orden.html', {'form': form})
+
+
+# Vista para buscar órdenes de trabajo
+def buscar_orden(request):
+    resultados = None
+    if request.method == 'GET':
+        form = BuscarOrdenForm(request.GET)
+        if form.is_valid():
+            cliente = form.cleaned_data.get('cliente')
+            estado = form.cleaned_data.get('estado')
+            resultados = OrdenTrabajo.objects.all()
+            if cliente:
+                resultados = resultados.filter(cliente__icontains=cliente)  # Filtro por cliente
+            if estado:
+                resultados = resultados.filter(estado=estado)  # Filtro por estado
+    else:
+        form = BuscarOrdenForm()
+    return render(request, 'buscar_orden.html', {'form': form, 'resultados': resultados})
 
 
 

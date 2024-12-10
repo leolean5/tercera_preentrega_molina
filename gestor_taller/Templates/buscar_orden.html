@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Orden de Trabajo</title>
+</head>
+<body>
+    <h1>Buscar Orden de Trabajo</h1>
+    <form method="get">
+        {{ form.as_p }}  <!-- Renderizar el formulario -->
+        <button type="submit">Buscar</button>
+    </form>
+    <h2>Resultados</h2>
+    <ul>
+        {% for orden in resultados %}
+            <li>
+                <strong>Cliente:</strong> {{ orden.cliente }}<br>
+                <strong>Estado:</strong> {{ orden.estado }}<br>
+                <a href="{% url 'detalle_orden' orden.id %}">Ver Detalle</a>
+            </li>
+        {% endfor %}
+        {% if not resultados %}
+            <p>No se encontraron resultados.</p>
+        {% endif %}
+    </ul>
+    <a href="{% url 'lista_ordenes' %}">Volver a la Lista</a>
+</body>
+</html>
