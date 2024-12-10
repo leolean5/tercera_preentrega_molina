@@ -1,17 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear Orden de Trabajo</title>
-</head>
-<body>
-    <h1>Crear Nueva Orden de Trabajo</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}  <!-- Renderizar el formulario -->
-        <button type="submit">Guardar</button>
-    </form>
-    <a href="{% url 'lista_ordenes' %}">Volver a la Lista</a>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Crear Nueva Orden{% endblock %}
+
+{% block content %}
+<h2>Crear Nueva Orden de Trabajo</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar</button>
+</form>
+{% endblock %}
