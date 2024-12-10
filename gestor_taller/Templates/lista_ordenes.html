@@ -10,13 +10,16 @@
     <ul>
         {% for orden in ordenes %}
             <li>
+                <strong>ID:</strong> {{ orden.id }}<br> <!-- Mostrar el ID -->
                 <strong>Cliente:</strong> {{ orden.cliente }}<br>
                 <strong>Descripción:</strong> {{ orden.descripcion }}<br>
                 <strong>Estado:</strong> {{ orden.estado }}<br>
                 <strong>Fecha:</strong> {{ orden.fecha }}<br>
+                <a href="{% url 'detalle_orden' orden.id %}">Ver Detalle</a> <!-- Enlace al detalle -->
                 <hr>
             </li>
         {% endfor %}
     </ul>
 </body>
 </html>
+
